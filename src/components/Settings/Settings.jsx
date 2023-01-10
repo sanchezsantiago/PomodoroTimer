@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactSlider from 'react-slider'
-
+import './slider.css'
 
 export const Settings = () => {
   return (
