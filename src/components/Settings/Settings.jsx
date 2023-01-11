@@ -8,6 +8,7 @@ export const Settings = () => {
         <label>Work minutes: </label>
         <ReactSlider
             className={'slider'}
+            thumbClassName = {'thumb'}
             trackClassName={"track"}
             value={45}
             min={1}
@@ -16,6 +17,7 @@ export const Settings = () => {
         <label>Break minutes: </label>
         <ReactSlider
             className={'slider'}
+            thumbClassName = {'thumb'}
             trackClassName={"track"}
             value={45}
             min={1}
