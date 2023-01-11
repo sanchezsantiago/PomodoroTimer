@@ -23,7 +23,7 @@ const Timer = () => {
             trailColor: 'rgba(255,255,255,.2)',
         })} />
         <div style={{marginTop:'20px'}}>
-          {isPaused? <PlayButton/> : <PlayButton/>}
+          {isPaused? <PlayButton/> : <PauseButton/>}
         </div>
         <div style={{marginTop:'20px'}}>
             <SettingsButton onClick={()=> settingsInfo.setShowSettings(true)}/>
