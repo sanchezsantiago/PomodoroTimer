@@ -21,7 +21,7 @@ export const Settings = () => {
         />
         <label>Break: {settingsInfo.breakMinutes}:00 </label>
         <ReactSlider
-            className={'slider'}
+            className={'slider green'}
             thumbClassName = {'thumb'}
             trackClassName={"track"}
             value={settingsInfo.breakMinutes}
