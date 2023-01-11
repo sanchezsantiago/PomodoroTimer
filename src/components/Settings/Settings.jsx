@@ -14,6 +14,13 @@ export const Settings = () => {
             max={120}
         />
         <label>Break minutes: </label>
+        <ReactSlider
+            className={'slider'}
+            trackClassName={"track"}
+            value={45}
+            min={1}
+            max={120}
+        />
     </div>
   )
 }
