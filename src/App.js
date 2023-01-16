@@ -22,6 +22,7 @@ function App() {
         {showSettings? <Settings/> : <Timer/> }
 
       </SettingsContext.Provider>
+      <footer>By SanchezSantiago</footer>
     </main>
   );
 }
