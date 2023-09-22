@@ -7,11 +7,9 @@ import PauseButton from './PauseButton';
 import SettingsButton from './SettingsButton';
 import { useContext, useState, useEffect, useRef } from 'react';
 import SettingsContext from '../Settings/SettingsContext';
-import useSound from 'use-sound';
-import FirstBell from '../../usesounds/FirstBell.mp3';
 const red = '#f54e4e';
 const green = '#4aec8c';
-const [firstBell] = useSound(FirstBell)
+
 const Timer = () => {
   const settingsInfo = useContext(SettingsContext);
 
@@ -47,7 +45,6 @@ const Timer = () => {
         return;
       }
       if (secondsLeftRef.current === 0) {
-        
         return switchMode();
       }
 
