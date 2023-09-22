@@ -7,12 +7,17 @@ import PauseButton from './PauseButton';
 import SettingsButton from './SettingsButton';
 import { useContext, useState, useEffect, useRef } from 'react';
 import SettingsContext from '../Settings/SettingsContext';
+import useSound from 'use-sound';
+import FirstBell from '../../sounds/SecondBell.mp3';
+import SecondBell from '../../sounds/SecondBell.mp3';
+
 const red = '#f54e4e';
 const green = '#4aec8c';
 
 const Timer = () => {
   const settingsInfo = useContext(SettingsContext);
-
+  const [workBell] = useSound(FirstBell);
+  const [restBell] = useSound(SecondBell);
   const [isPaused, setIsPaused] = useState(false);
   const [secondsLeft, setSecondsLeft] = useState(0)
   const [mode, setMode] = useState('work');
@@ -34,6 +39,12 @@ const Timer = () => {
       setMode(nextMode);
       modeRef.current = nextMode;
 
+      if(nextMode === 'work'){
+        workBell();
+      } else {
+        restBell();
+      }
+
       setSecondsLeft(nextSeconds);
       secondsLeftRef.current = nextSeconds;
     }
@@ -52,7 +63,7 @@ const Timer = () => {
     },1000);
 
     return () => clearInterval(interval);
-  },[settingsInfo])
+  },[settingsInfo, restBell, workBell])
 
   const totalSeconds = mode === 'work' ? 
     settingsInfo.workMinutes * 60 
@@ -62,7 +73,6 @@ const Timer = () => {
   const minutes = Math.floor(secondsLeft / 60);
   let seconds = secondsLeft % 60;
   if(seconds < 10) seconds = '0'+ seconds;
-
   return (
     <div>
         <CircularProgressbar 
